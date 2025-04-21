@@ -1,6 +1,7 @@
 #include <iostream>
 #include "simdjson.h"
 using namespace simdjson;
+
 int main(void) {
     ondemand::parser parser;
     padded_string json = padded_string::load("twitter.json");
