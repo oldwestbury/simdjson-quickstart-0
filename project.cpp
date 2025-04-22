@@ -18,9 +18,14 @@ void get_type(string k, ondemand::value element) {
         break;
     case ondemand::json_type::object:
         for (auto field : element.get_object()) {
-            stringstream s;
-            s << k << "." << field.key();
-            get_type(s.str(), field.value());
+            //stringstream s;
+
+            //s << k << "." << field.key();
+            std::string_view s(field.escaped_key());
+            get_type(k+"."+string(s), field.value());
+
+
+
         }
 
         break;
